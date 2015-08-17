@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+body {
+	margin: 0;
+}
+
+div:not(#skip-navigation) {
+	width: 50%;
+	margin: 0 auto;
+	min-height: 100vh;
+	background: #000;
+	margin-bottom: 30px;
+}
+div:not(#skip-navigation)::before {
+	content: attr(id);
+	font-size: 72px;
+	color: #fff;
+}

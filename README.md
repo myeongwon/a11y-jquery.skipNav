@@ -6,7 +6,9 @@
 
 ## 사용법
 
-jQuery 라이브러리에 의존하는 컴포넌트이기에 jQuery 호출 후, 사용해야 합니다.
+jQuery 라이브러리에 의존하는 컴포넌트이기에 jQuery 호출 후, 사용해야 합니다. `<head>` 내부에 다음과 같이 스크립트 호출 코드를 작성합니다.
+
+**HTML 코드 예시**
 
 ```html
 <!-- jQuery 호출 -->
@@ -15,9 +17,21 @@ jQuery 라이브러리에 의존하는 컴포넌트이기에 jQuery 호출 후, 
 <script src="../dist/jquery.skipNav.min.js"></script>
 ```
 
+`<body>` 바로 아래 다음과 같이 스킵 내비게이션 마크업을 추가합니다.
+
+```html
+<div id="skip-navigation">
+	<a href="#header">header</a>
+	<a href="#main">main</a>
+	<a href="#footer">footer</a>
+</div>
+```
+
 `jQuery.skipNav()`에 스킵 내비게이션 메뉴를 적용하고자 하는 컨테이너 요소 선택자를 전달합니다.
 필요에 따라서는 두번째 전달인자로 옵션 값을 전달하여 사용자 입맛에 맞게 변경하여 사용할 수 있습니다.
 아래 예시를 참고하세요.
+
+**Javascript 코드 예시**
 
 ```js
 // 기본 옵션 사용 예
