@@ -2,6 +2,6 @@
 (function(global, $, undefined){
 	'use strict';
 
-	$.skipNav('#skip');
+	$.skipNav('#skip-navigation');
 
 })(window, window.jQuery);

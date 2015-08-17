@@ -22,7 +22,7 @@
 		// 스킵 내비게이션 요소의 링크에 클래스 설정
 		var $skip_links = $skip.find('a').toggleClass(options.linkClasses, options.customClass);
 
-		options.customClass || $skip_links.css({
+		var a11y_hidden_class = {
 			'overflow' : 'hidden',
 			'position' : 'absolute',
 			'clip'     :     'rect(0 0 0 0)',
@@ -32,16 +32,25 @@
 			'margin'   :   -'1px',
 			'padding'  :  '0',
 			'border'   :   '0',
-		}).on('focus', function(ev) {
-			$(this).css({
-				'overflow': 'visible',
-				'position': 'static',
-				'clip':     'auto',
-				'width':    'auto',
-				'height':   'auto',
-				'margin':   0,
-			});
-		});
+		};
+
+		var a11y_hidden_class_focusable = {
+			'overflow' : 'hidden',
+			'position' : 'absolute',
+			'clip'     :     'rect(0 0 0 0)',
+			'clip'     :     'rect(0,0,0,0)',
+			'width'    :    '1px',
+			'height'   :   '1px',
+			'margin'   :   -'1px',
+			'padding'  :  '0',
+			'border'   :   '0',
+		};
+
+		options.customClass || $skip_links.css(a11y_hidden_class).on('focus', function(ev) {
+			$(this).css(a11y_hidden_class_focusable);
+		}).on('blur', function(ev) {
+			$(this).css(a11y_hidden_class);
+		})
 
 		// 스킵 내비게이션 요소의 링크 클릭 이벤트 설정
 		$skip.on('click', 'a', function(ev) {
@@ -59,9 +68,9 @@
 
 	// $.skipNav 기본 설정 값
 	$.skipNav.defaults = {
-		'customClass': true,
-		'containerClass': 'skip-nav',
-		'linkClasses': 'a11y-hidden focusable'
+		'customClass'    : true,
+		'containerClass' : 'skip-nav',
+		'linkClasses'    : 'a11y-hidden focusable'
 	};
 
 })(window, window.document, window.jQuery);
