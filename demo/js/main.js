@@ -2,4 +2,6 @@
 (function(global, $, undefined){
 	'use strict';
 
+	$.skipNav('#skip');
+
 })(window, window.jQuery);

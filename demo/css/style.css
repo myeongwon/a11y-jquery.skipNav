@@ -3,3 +3,43 @@
 body {
 	margin: 0;
 }
+
+div:not(#skip-navigation) {
+	width: 50%;
+	margin: 0 auto;
+	min-height: 100vh;
+	background: #000;
+	margin-bottom: 30px;
+}
+div:not(#skip-navigation)::before {
+	content: attr(id);
+	font-size: 72px;
+	color: #fff;
+}
+
+.skip-nav {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.a11y-hidden {
+	overflow: hidden;
+	position: absolute;
+	clip:     rect(0 0 0 0);
+	clip:     rect(0,0,0,0);
+	width:    1px;
+	height:   1px;
+	margin:   -1px;
+	padding:  0;
+	border:   0;
+}
+.a11y-hidden.focusable:focus,
+.a11y-hidden.focusable:active {
+	overflow: visible;
+	position: static;
+	clip:     auto;
+	width:    auto;
+	height:   auto;
+	margin:   0;
+}
